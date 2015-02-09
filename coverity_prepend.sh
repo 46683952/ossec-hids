@@ -4,7 +4,7 @@
 
 set -e
 
-if [ "${COVERITY}" != "yes" ]; then exit 0; fi
+if [ "${COVERITY}" != "yes" ]; then exit 1; fi #early exit for all travis matrixx builds, execpt one
 
 sudo apt-get update -qq
 sudo apt-get install geoip-bin geoip-database libgeoip-dev libgeoip1 libprelude-dev libzmq3-dev aptitude

@@ -46,7 +46,7 @@ matrix:
 
 
 before_script:
-- if [[ ${COVERITY_SCAN_BRANCH} == 1 ]]; then exit 0; fi #early exit for coverity branch
+- if [[ ${COVERITY_SCAN_BRANCH} == 1 ]]; then exit 1; fi #early exit for coverity branch
 
 - sudo apt-get update -qq
 - if [[ "${GEOIP}" == "yes"  ]]; then ( sudo apt-get install geoip-bin geoip-database libgeoip-dev libgeoip1 ); fi
@@ -62,7 +62,7 @@ before_script:
 
 
 script:
-- if [[ ${COVERITY_SCAN_BRANCH} == 1 ]]; then exit 0; fi #early exit for coverity branch
+- if [[ ${COVERITY_SCAN_BRANCH} == 1 ]]; then exit 1; fi #early exit for coverity branch
 
 - COMMAND="V=1 TARGET=${OSSEC_TYPE}"
   && if ! [[ "${DB}" = "none" ]]; then COMMAND="${COMMAND} DATABASE=${DB}"; fi

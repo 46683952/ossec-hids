@@ -4,7 +4,7 @@
 
 set -e
 
-if [ "${COVERITY}" != "yes" ]; then exit 0; fi
+if [ "${COVERITY}" != "yes" ]; then exit 1; fi #early exit for all travis matrixx builds, execpt one
 
 cd src/
 
